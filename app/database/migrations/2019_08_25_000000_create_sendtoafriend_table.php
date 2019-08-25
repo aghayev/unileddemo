@@ -16,7 +16,7 @@ class CreateSendtoafriendTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('friend_name');
-            $table->string('friend_email')->unique();
+            $table->string('friend_email');
             $table->timestamps();
         });
     }

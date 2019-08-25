@@ -1,17 +1,33 @@
 <?php
 
+/**
+ * Class UniledController
+ */
 class UniledController extends BaseController {
 
+    /**
+     * Task 1
+     *
+     * @return mixed
+     */
     public function task1()
     {
         return View::make('uniled.task1');
     }
 
+    /**
+     * Task 2
+     *
+     * @return mixed
+     */
     public function task2()
     {
         return View::make('uniled.task2');
     }
 
+    /**
+     * Send to a friend
+     */
     public function sendtoafriend()
     {
         $model = new Sendtoafriend();

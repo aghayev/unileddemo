@@ -4,11 +4,14 @@
     <meta charset="utf-8">
 </head>
 <body>
-<h2>Welcome to my site</h2>
+<h2>Send to a friend</h2>
 
 <div>
-    Your sign up details are below:
+    Send to a friend form details:
 </div>
-<div>{{ $name}} </div>
+<div>{{ $name }} </div>
+
+<div>{{ $friend_name }} </div>
+
 </body>
 </html>

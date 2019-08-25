@@ -6,7 +6,7 @@
     <!-- if there are creation errors, they will show here -->
     {{ HTML::ul($errors->all()) }}
 
-    {{ Form::open(array('url' => '/api/v1/courses')) }}
+    {{ Form::open(array('url' => '/sendtoafriend')) }}
 
     <div class="form-group">
         {{ Form::label('name', 'Your name') }}

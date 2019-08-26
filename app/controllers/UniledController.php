@@ -3,7 +3,8 @@
 /**
  * Class UniledController
  */
-class UniledController extends BaseController {
+class UniledController extends BaseController
+{
 
     /**
      * Task 1
@@ -30,15 +31,36 @@ class UniledController extends BaseController {
      */
     public function sendtoafriend()
     {
-        $model = new Sendtoafriend();
-        $model->name = Input::get('name');
-        $model->friend_name = Input::get('friend_name');
-        $model->friend_email = Input::get('friend_email');
-        $model->save();
+        // get all request data
+        $inputs = Input::all();
 
-        Mail::send('emails.task2',Input::all(), function($message) {
-            $message->to(Input::get('friend_email'))->subject("Uniled Demo");
-            $message->from('imran.aghayev@hotmail.co.uk','Uniled Demo');
-        });
+        // build validation rules
+        $rules = array(
+            'name' => array('required'),
+            'friend_name' => array('required'),
+            'friend_email' => array('required', 'email'),
+        );
+
+        // create validator instance
+        $validation = Validator::make($inputs, $rules);
+
+        //check if inputs valid
+        if ($validation->passes()) {
+
+            //save data to db and send email
+            $model = new Sendtoafriend();
+            $model->name = $inputs['name'];
+            $model->friend_name = $inputs['friend_name'];
+            $model->friend_email = $inputs['friend_email'];
+            $model->save();
+
+            Mail::send('emails.task2', $inputs, function ($message) {
+                $message->to(Input::get('friend_email'))->subject("Uniled Demo");
+                $message->from('demo@hotmail.co.uk', 'Uniled Demo');
+            });
+        }
+
+        //return to form form page with errors
+        return Redirect::to('task2')->withErrors($validation);
     }
 }

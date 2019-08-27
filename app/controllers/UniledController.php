@@ -58,6 +58,8 @@ class UniledController extends BaseController
                 $message->to(Input::get('friend_email'))->subject("Uniled Demo");
                 $message->from('demo@hotmail.co.uk', 'Uniled Demo');
             });
+
+            return Redirect::to('task2')->withSuccess('success');
         }
 
         //return to form form page with errors

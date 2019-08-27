@@ -6,7 +6,7 @@
 
     {{ Form::open(array('url' => '/sendtoafriend')) }}
 
-    @if (empty($errors->all()))
+    @if (Session::get('success'))
         <span class="text-success">Successfully sent</span><br/>
     @endif
 

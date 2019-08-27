@@ -1,5 +1,5 @@
 <meta charset="utf-8">
 <meta name="description" content="">
-<meta name="author" content="IA">
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+<meta name="author" content="aghayev">
 <title>Uniled Demo</title>
+<link rel="stylesheet" href="{{ asset('css/unileddemo.css') }}">
